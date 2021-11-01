@@ -75,6 +75,11 @@ function fillRandomNumer(){
 		"y" : positions[0][1]
 	};
 	
+	enviroment['empty_position'] = {
+		"x" : positions[0][0],
+		"y" : positions[0][1]
+	};
+	
 	return enviroment;
 }
 
@@ -108,6 +113,11 @@ function fillSolutionNumer(){
 		"y" : positions[i-1][1]
 	};
 	
+	enviroment['empty_position'] = {
+		"x" : positions[i-1][0],
+		"y" : positions[i-1][1]
+	};
+	
 	return enviroment;
 }
 
@@ -119,7 +129,7 @@ random.onclick = function(){
 	console.log(enviroment);
 	emptyPosition = new EmptyPosition(enviroment['start']['x'],enviroment['start']['y']);
 	emptyPosition.display();
-	console.log(emptyPosition);
+	// console.log(emptyPosition);
 }
 
 solution = document.getElementById('solution');
@@ -135,7 +145,26 @@ solution.onclick = function(){
 
 startlearn = document.getElementById('startlearn');
 startlearn.onclick = function(){
-	// clear();
 	emptyPosition.moveDown();
+	enviroment['empty_position'] = {
+		"x" : emptyPosition['x'],
+		"y" : emptyPosition['y']
+	};
+	clear();
+	fillCanvas();
+	var canvas = document.querySelector("canvas");
+	var ctx = canvas.getContext("2d");
+	Object.keys(enviroment).forEach(key => {
+	  if(key != 'start' && enviroment[key]['x'] == emptyPosition['x'] && enviroment[key]['y'] == emptyPosition['y']){
+		  enviroment[key]['x'] = emptyPosition['x'];
+		  enviroment[key]['y'] = emptyPosition['y']-60;
+	  }
+	  if(enviroment[key]['value']){
+		  ctx.fillText(enviroment[key]['value'], enviroment[key]['x'], enviroment[key]['y']);
+	  }
+	  
+	});
+	
 	emptyPosition.display();
+	
 }
