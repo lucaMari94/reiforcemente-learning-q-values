@@ -145,26 +145,121 @@ solution.onclick = function(){
 
 startlearn = document.getElementById('startlearn');
 startlearn.onclick = function(){
-	emptyPosition.moveDown();
-	enviroment['empty_position'] = {
-		"x" : emptyPosition['x'],
-		"y" : emptyPosition['y']
-	};
-	clear();
-	fillCanvas();
-	var canvas = document.querySelector("canvas");
-	var ctx = canvas.getContext("2d");
-	Object.keys(enviroment).forEach(key => {
-	  if(key != 'start' && enviroment[key]['x'] == emptyPosition['x'] && enviroment[key]['y'] == emptyPosition['y']){
-		  enviroment[key]['x'] = emptyPosition['x'];
-		  enviroment[key]['y'] = emptyPosition['y']-60;
-	  }
-	  if(enviroment[key]['value']){
-		  ctx.fillText(enviroment[key]['value'], enviroment[key]['x'], enviroment[key]['y']);
-	  }
-	  
-	});
-	
-	emptyPosition.display();
+	for(var i = 0; i<5000;i++){
+		setTimeout(function(){ 
+
+			//emptyPosition.moveDown();
+		enviroment['empty_position'] = {
+			"x" : emptyPosition['x'],
+			"y" : emptyPosition['y']
+		};
+		clear();
+		fillCanvas();
+		var canvas = document.querySelector("canvas");
+		var ctx = canvas.getContext("2d");
+		var action = Math.floor(Math.random() * 4);
+		switch (action) {
+		  case 0:
+			console.log('Up');
+			emptyPosition.moveUp();
+			enviroment['empty_position'] = {
+				"x" : emptyPosition['x'],
+				"y" : emptyPosition['y']
+			};
+			clear();
+			fillCanvas();
+			var canvas = document.querySelector("canvas");
+			var ctx = canvas.getContext("2d");
+			Object.keys(enviroment).forEach(key => {
+			  if(key != 'start' && enviroment[key]['x'] == emptyPosition['x'] && enviroment[key]['y'] == emptyPosition['y']){
+				  enviroment[key]['x'] = emptyPosition['x'];
+				  enviroment[key]['y'] = emptyPosition['y']+60;
+			  }
+			  if(enviroment[key]['value']){
+				  ctx.fillText(enviroment[key]['value'], enviroment[key]['x'], enviroment[key]['y']);
+			  }
+			  
+			});
+		
+		emptyPosition.display();
+			break;
+		  case 1:
+			console.log('Down');
+			emptyPosition.moveDown();
+			enviroment['empty_position'] = {
+				"x" : emptyPosition['x'],
+				"y" : emptyPosition['y']
+			};
+			clear();
+			fillCanvas();
+			var canvas = document.querySelector("canvas");
+			var ctx = canvas.getContext("2d");
+			Object.keys(enviroment).forEach(key => {
+			  if(key != 'start' && enviroment[key]['x'] == emptyPosition['x'] && enviroment[key]['y'] == emptyPosition['y']){
+				  enviroment[key]['x'] = emptyPosition['x'];
+				  enviroment[key]['y'] = emptyPosition['y']-60;
+			  }
+			  if(enviroment[key]['value']){
+				  ctx.fillText(enviroment[key]['value'], enviroment[key]['x'], enviroment[key]['y']);
+			  }
+			  
+			});
+			
+			emptyPosition.display();
+			break;
+		  case 2:
+			console.log('Right'); // destra
+			emptyPosition.moveRight();
+			enviroment['empty_position'] = {
+				"x" : emptyPosition['x'],
+				"y" : emptyPosition['y']
+			};
+			clear();
+			fillCanvas();
+			var canvas = document.querySelector("canvas");
+			var ctx = canvas.getContext("2d");
+			Object.keys(enviroment).forEach(key => {
+			  if(key != 'start' && enviroment[key]['x'] == emptyPosition['x'] && enviroment[key]['y'] == emptyPosition['y']){
+				  enviroment[key]['x'] = emptyPosition['x']-60;
+				  enviroment[key]['y'] = emptyPosition['y'];
+			  }
+			  if(enviroment[key]['value']){
+				  ctx.fillText(enviroment[key]['value'], enviroment[key]['x'], enviroment[key]['y']);
+			  }
+			  
+			});
+			
+			emptyPosition.display();
+			break;
+		  case 3:
+			console.log('Left'); // sinistra
+			emptyPosition.moveLeft();
+			enviroment['empty_position'] = {
+				"x" : emptyPosition['x'],
+				"y" : emptyPosition['y']
+			};
+			clear();
+			fillCanvas();
+			var canvas = document.querySelector("canvas");
+			var ctx = canvas.getContext("2d");
+			Object.keys(enviroment).forEach(key => {
+			  if(key != 'start' && enviroment[key]['x'] == emptyPosition['x'] && enviroment[key]['y'] == emptyPosition['y']){
+				  enviroment[key]['x'] = emptyPosition['x']+60;
+				  enviroment[key]['y'] = emptyPosition['y'];
+			  }
+			  if(enviroment[key]['value']){
+				  ctx.fillText(enviroment[key]['value'], enviroment[key]['x'], enviroment[key]['y']);
+			  }
+			  
+			});
+			
+			emptyPosition.display();
+			break;
+		  default:
+			console.log(`Sorry, we are out of ${expr}.`);
+		  break;
+		}
+		}, 5000);  
+	}
 	
 }
