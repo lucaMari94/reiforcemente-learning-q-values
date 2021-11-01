@@ -147,8 +147,6 @@ startlearn = document.getElementById('startlearn');
 startlearn.onclick = function(){
 	for(var i = 0; i<5000;i++){
 		setTimeout(function(){ 
-
-			//emptyPosition.moveDown();
 		enviroment['empty_position'] = {
 			"x" : emptyPosition['x'],
 			"y" : emptyPosition['y']
