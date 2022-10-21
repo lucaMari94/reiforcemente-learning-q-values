@@ -8,3 +8,4 @@ Slide: [SlideShare](https://www.slideshare.net/LucaMarignati/presentazione-tesi-
 <br>YouTube Video [Grid 12x4 - Cliff_Walking](https://www.youtube.com/watch?v=aXBU1PaTFmA)
 <br>YouTube Video [Grid 10x10](https://www.youtube.com/watch?v=TDj2fvOE6Dc)
 
+![image](https://user-images.githubusercontent.com/55786265/197157010-2e17ec99-e004-479e-9f37-3ea0a738313b.png)
