@@ -1,4 +1,4 @@
-Javascript Simulator
+# Javascript Simulator
 Tools: Canvas Html5, Bootstrap, Chartjs, JQuery, FontAwesome Icons.
 Topic: Machine Learning, Reinforcement Learning, Applications to path planning problems
 Three-year thesis - Computer Science Department in Turin
